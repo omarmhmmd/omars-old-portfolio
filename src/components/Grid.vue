@@ -2,36 +2,37 @@
   <table id="table">
     <thead>
       <tr>
-        <th id="table-headers" v-for="key in columns" v-bind:key="key" :class="{ active: sortKey == key }">
-          <div v-if="key === 'year'" class="">
-            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+        <th id="table-headers" v-for="header in headers" v-bind:key='header' :class="{ active: sortKey == header }">
+          <div v-if="header === 'year'" class="">
+            <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
               </span>
-            <span @click="sortBy(key)">{{ key | capitalize }}</span>
+            <span @click="sortBy(header)">{{ header | capitalize }}</span>
           </div>
           <div v-else>
-            <span @click="sortBy(key)">{{ key | capitalize }}</span>
-            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+            <span @click="sortBy(header)">{{ header | capitalize }}</span>
+            <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
               </span>
           </div>
         </th>
       </tr>
     </thead>
-    <tbody v-for="entry in filteredHeroes" v-bind:key="entry">
-      <tr id="table-rows">
-        <td id="table-data" v-for="key in columns" v-bind:key="key">
-          <div v-if="key === 'type'">
-            {{entry[key]}}
-          </div>
-          <div v-else>
-            {{entry[key]}}
-          </div>
+    <tbody v-for="(filteredProject, index) in filteredProjects" :key="filteredProject">
+      <tr v-on:click="toggleInfo(index)" id="table-rows">
+        <td id="table-data">
+            {{filteredProjects[index].project}}
         </td>
-        <td id="table-data-toggle" colspan="100%">
-          <div>
-            {{entry['info']}}
-          </div>
+        <td id="table-data">
+            {{filteredProjects[index].type}}
+        </td>
+        <td id="table-data">
+            {{filteredProjects[index].year}}
         </td>
       </tr>
+      <td v-show="isOpen" id="table-data-toggle" colspan="100%">
+        <div>
+          {{filteredProjects[index].info}}
+        </div>
+      </td>
     </tbody>
   </table>
 </template>
@@ -39,46 +40,49 @@
 <script>
 export default {
   props: {
-    heroes: Array,
-    columns: Array,
+    projects: Array,
+    headers: Array,
     filterKey: String
   },
   data: function() {
     var sortOrders = {}
-    this.columns.forEach(function(key) {
+    this.headers.forEach(function(key) {
       sortOrders[key] = 1
     })
     return {
       sortKey: '',
-      sortOrders: sortOrders
+      sortOrders: sortOrders,
+      isOpen: false,
+      infoIndex: 0
     }
   },
   created() {
     /* START ON NAME SORT */
-    this.sortKey = "name"
+    this.sortKey = "project"
     /* END START ON NAME SORT */
   },
   computed: {
-    filteredHeroes: function() {
+    filteredProjects: function() {
       var sortKey = this.sortKey
       var filterKey = this.filterKey && this.filterKey.toLowerCase()
       var order = this.sortOrders[sortKey] || 1
-      var heroes = this.heroes
+      var projects = this.projects
       if (filterKey) {
-        heroes = heroes.filter(function(row) {
+        projects = projects.filter(function(row) {
           return Object.keys(row).some(function(key) {
             return String(row[key]).toLowerCase().indexOf(filterKey) > -1
           })
         })
       }
       if (sortKey) {
-        heroes = heroes.slice().sort(function(a, b) {
+        projects = projects.slice().sort(function(a, b) {
           a = a[sortKey]
           b = b[sortKey]
           return (a === b ? 0 : a > b ? 1 : -1) * order
         })
       }
-      return heroes
+      console.log(projects);
+      return projects
     }
   },
   filters: {
@@ -90,7 +94,12 @@ export default {
     sortBy: function(key) {
       this.sortKey = key
       this.sortOrders[key] = this.sortOrders[key] * -1
-    }
+    },
+    toggleInfo(index) {
+      console.log(index);
+      this.infoIndex = index
+      this.isOpen = !this.isOpen
+    },
   }
 }
 </script>
@@ -161,14 +170,14 @@ export default {
 }
 
 .arrow.asc {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
   border-bottom: 4px solid var(--black);
 }
 
 .arrow.dsc {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
   border-top: 4px solid var(--black);
 }
 
@@ -195,6 +204,7 @@ export default {
 }
 
 #table-data-toggle {
+
   padding: 8px 0px 8px 0px;
   line-height: normal;
   width: 47.5vw;

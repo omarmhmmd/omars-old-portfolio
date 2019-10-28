@@ -1,9 +1,6 @@
 <template>
   <div class="left-container">
-    <grid
-      :heroes="gridData"
-      :columns="gridColumns"
-      :filter-key="searchQuery">
+    <grid :projects="gridData" :headers="gridColumns" :filter-key="searchQuery">
     </grid>
   </div>
 </template>
@@ -14,27 +11,27 @@ export default {
   data() {
     return {
       searchQuery: '',
-      gridColumns: ['name', 'type', 'year'],
+      gridColumns: ['project', 'type', 'year'],
       gridData: [{
-          name: 'suntar',
+          project: 'suntar',
           type: 'typeface',
           year:  2019,
           info: 'info for suntar'
         },
         {
-          name: 'sfmomabathrooms',
+          project: 'sfmomabathrooms',
           type: 'website',
           year: 2017,
           info: 'info for sfmomabathrooms'
         },
         {
-          name: 'elemental calder',
+          project: 'elemental calder',
           type: 'exhibition',
           year: 2018,
           info: 'info for elemental calder'
         },
         {
-          name: 'qiblah',
+          project: 'qiblah',
           type: 'object',
           year: 2017,
           info: 'info for qiblah'
