@@ -1,18 +1,35 @@
 <template>
-  <table id = "table">
+  <table id="table">
     <thead>
       <tr>
-        <th id="th" v-for="key in columns" v-bind:key="key" @click="sortBy(key)" :class="{ active: sortKey == key }">
-          {{ key | capitalize }}
-          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-          </span>
+        <th id="table-headers" v-for="key in columns" v-bind:key="key" :class="{ active: sortKey == key }">
+          <div v-if="key === 'year'" class="">
+            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+              </span>
+            <span @click="sortBy(key)">{{ key | capitalize }}</span>
+          </div>
+          <div v-else>
+            <span @click="sortBy(key)">{{ key | capitalize }}</span>
+            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+              </span>
+          </div>
         </th>
       </tr>
     </thead>
-    <tbody>
-      <tr v-for="entry in filteredHeroes" v-bind:key="entry">
-        <td id = "td" v-for="key in columns" v-bind:key="key">
-          {{entry[key]}}
+    <tbody v-for="entry in filteredHeroes" v-bind:key="entry">
+      <tr id="table-rows">
+        <td id="table-data" v-for="key in columns" v-bind:key="key">
+          <div v-if="key === 'type'">
+            {{entry[key]}}
+          </div>
+          <div v-else>
+            {{entry[key]}}
+          </div>
+        </td>
+        <td id="table-data-toggle" colspan="100%">
+          <div>
+            {{entry['info']}}
+          </div>
         </td>
       </tr>
     </tbody>
@@ -79,72 +96,107 @@ export default {
 </script>
 
 <style>
+:root {
+  --black: #333333;
+  --borders: #888888;
+}
+
 #table {
   width: 47.5vw;
   font-size: 11px;
   text-transform: uppercase;
+  color: var(--black);
 }
 
-#th {
+#table-headers {
   font-size: 10px;
-  color: black;
-  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   text-align: left;
+  border-bottom: 1px solid var(--borders);
 }
 
-#th:first-child, #td:first-child {
-  /* text-align: center; */
-}
-
-#th:nth-child(2), #td:nth-child(2) {
-  /* text-align: right; */
-}
-
-#th:last-child, #td:last-child {
-  text-align: left;
-  width: 4vw;
-}
-
-#td {
-  border-top: 0.15px solid #888888;
-  border-bottom: 0.15px solid #888888;
-}
-
-#th, #td {
+#table-headers {
   padding: 8px 0px 8px 0px;
 }
 
-#th.active {
+#table-headers div span {
+  cursor: pointer;
+}
+
+#table-headers:first-child,
+#table-data:first-child {}
+
+#table-headers:nth-child(2),
+#table-data:nth-child(2) {
+  text-align: left;
+  width: 7.5vw;
+}
+
+#table-headers:last-child,
+#table-data:last-child {
+  text-align: right;
+}
+
+#table-headers.active {
   text-decoration: underline;
 }
 
-#th.active .arrow {
+#table-headers.active .arrow {
   opacity: 1;
   color: black;
 }
 
 .arrow {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: bottom;
   width: 0;
   height: 0;
   margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 3.5px;
   opacity: 0;
 }
 
 .arrow.asc {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-bottom: 4px solid black;
+  border-bottom: 4px solid var(--black);
 }
 
 .arrow.dsc {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid black;
+  border-top: 4px solid var(--black);
+}
+
+#table-rows {
+  border-top: 1px solid var(--borders);
+  border-bottom: 1px solid var(--borders);
+}
+
+#table-rows:hover {
+  background-color: #A09A90;
+  cursor: pointer;
+  color: black;
+}
+
+/* #table-rows:first-child{
+  border: 1px solid var(--borders);
+  background-color: #A09A90;
+  filter: blur(5px);
+  color: black;
+} */
+
+#table-data {
+  padding: 8px 0px 8px 0px;
+}
+
+#table-data-toggle {
+  padding: 8px 0px 8px 0px;
+  line-height: normal;
+  width: 47.5vw;
 }
 </style>

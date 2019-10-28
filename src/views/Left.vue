@@ -18,22 +18,26 @@ export default {
       gridData: [{
           name: 'suntar',
           type: 'typeface',
-          year:  2019
+          year:  2019,
+          info: 'info for suntar'
         },
         {
           name: 'sfmomabathrooms',
           type: 'website',
-          year: 2017
+          year: 2017,
+          info: 'info for sfmomabathrooms'
         },
         {
           name: 'elemental calder',
           type: 'exhibition',
-          year: 2018
+          year: 2018,
+          info: 'info for elemental calder'
         },
         {
           name: 'qiblah',
           type: 'object',
-          year: 2017
+          year: 2017,
+          info: 'info for qiblah'
         }
       ]
     }
@@ -46,6 +50,9 @@ export default {
 
 <style scoped>
 .left-container {
+  padding-top: 0.5vw;
+  height: 100vh;
+  overflow-y: scroll;
   font-family: 'AKZLIGHT';
   width: 50vw;
   display: flex;
