@@ -4,6 +4,7 @@ import router from './router'
 import 'reset-css';
 
 Vue.config.productionTip = false
+Vue.config.silent = true
 
 new Vue({
   router,
