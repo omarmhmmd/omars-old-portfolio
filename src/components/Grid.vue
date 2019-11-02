@@ -5,48 +5,40 @@
       <tr>
         <th id="table-headers" v-for="header in headers" v-bind:key='header' :class="{ active: sortKey == header }">
           <div v-if="header === 'year'">
-            <!-- <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
-                </span> -->
-            <!-- <span @click="sortBy(header)">{{ header | capitalize }}</span> -->
-            <span>{{ header | capitalize }}</span>
+            <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
+                </span>
+            <span @click="sortBy(header)">{{ header | capitalize }}</span>
           </div>
           <div v-else>
-            <!-- <span @click="sortBy(header)">{{ header | capitalize }}</span> -->
-            <span>{{ header | capitalize }}</span>
-            <!-- <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
-                </span> -->
+            <span @click="sortBy(header)">{{ header | capitalize }}</span>
+            <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
+                </span>
           </div>
         </th>
       </tr>
     </thead>
     <tbody v-for="(filteredProject, index) in filteredProjects" :key="filteredProject">
-      <tr id="table-rows" @click="activeProject = filteredProjects[index], current = index">
-        <td>
-          <div :class="{current:index == current}">
-            <td id="table-data">
-              {{filteredProjects[index].project}}
-            </td>
-          </div>
+      <tr :class="{current: current == index}" id="table-rows" @click="activeProject = filteredProjects[index], getActiveProject(), current = index">
+        <td id="table-data">
+          {{filteredProjects[index].project}}
         </td>
-        <td>
-          <div :class="{current:index == current}">
-            <td id="table-data">
-              {{filteredProjects[index].type}}
-            </td>
-          </div>
+        <td id="table-data">
+          {{filteredProjects[index].type}}
         </td>
-        <td>
-          <div :class="{current:index == current}">
-            <td id="table-data-year">
-              {{filteredProjects[index].year}}
-            </td>
-          </div>
+        <td id="table-data">
+          {{filteredProjects[index].year}}
         </td>
       </tr>
-      <td :class="{current:index == current}" v-if="activeProject === filteredProjects[index]" id="table-toggle" colspan="100%">
-        <div class="bg-blur">
-          <div id="info-padding">
-            <span>INFO: </span>{{filteredProjects[index].info}}
+      <td v-if="activeProject === filteredProjects[index]" id="table-toggle" colspan="100%">
+        <div id="info-one">
+          <span class="bold-type">INFO: </span>{{filteredProjects[index].info}}
+        </div>
+        <div id="info-two">
+          <div>
+            <span class="bold-type">MATERIALS: </span>{{filteredProjects[index].materials}}
+          </div>
+          <div>
+            <span class="bold-type">OUTPUT: </span>{{filteredProjects[index].output}}
           </div>
         </div>
       </td>
@@ -56,6 +48,8 @@
 </template>
 
 <script>
+import { EventBus } from "../event-bus.js";
+
 export default {
   props: {
     projects: Array,
@@ -70,15 +64,21 @@ export default {
     return {
       sortKey: '',
       sortOrders: sortOrders,
-      infoIndex: 0,
       activeProject: 0,
-      current: 0
+      current: 0,
     }
   },
   created() {
     /* START ON NAME SORT */
-    // this.sortKey = "project"
+    this.current = 0
+    this.activeProject = this.filteredProjects[0]
+    this.sortBy("year")
+
+    console.log(this.activeProject.project)
     /* END START ON NAME SORT */
+  },
+  mounted() {
+
   },
   computed: {
     filteredProjects: function() {
@@ -110,8 +110,16 @@ export default {
   },
   methods: {
     sortBy: function(key) {
+      this.current = null
+      this.activeProject = null
       this.sortKey = key
       this.sortOrders[key] = this.sortOrders[key] * -1
+      this.current = 0
+      this.activeProject = this.filteredProjects[0]
+      EventBus.$emit("sort-projects", this.filteredProjects);
+    },
+    getActiveProject: function() {
+      console.log(this.activeProject.project)
     }
   }
 }
@@ -121,25 +129,31 @@ export default {
 body {
   background-color: var(--bg);
 }
+
 :root {
-  /* --black: #cbc3b2;
-  --borders: #cbc3b2; */
+  /* --black: black;
+  --borders: black;
+  --bg: #9B968C; */
+  /* --bg: #413C34;
   --black: white;
+  --borders: white;*/
+  /* --black: white;
   --borders: white;
-  --bg: #413C34;
-  /* --bg: white;
-  --black: #413C34;
-  --borders: #413C34; */
+  --bg: black; */
+  --black: black;
+  --borders: black;
+  --bg: white;
 }
 
 .table-container {
   display: flex;
   justify-content: center;
-  width: 97.5%;
+  align-items: flex-start;
+  width: 100%;
 }
 
 #table {
-  width: 97.5%;
+  width: 95%;
   text-transform: uppercase;
   color: var(--black);
 }
@@ -160,77 +174,63 @@ body {
 }
 
 #table-headers div span {
-  /* cursor: pointer; */
+  cursor: pointer;
+}
+
+#table-headers div span:hover {
+  text-decoration: underline;
 }
 
 #table-rows {
-  font-size: 11px;
+  font-size: 12px;
   border-top: 1px solid var(--borders);
   border-bottom: 1px solid var(--borders);
 }
 
 #table-rows:hover {
-  background-color: var(--bg);
+  /* background-color: #9B968C; */
   cursor: pointer;
-  color: var(--black);
+  color: black;
   text-decoration: underline;
 }
 
 #table-data {
-  display: flex;
-  position: relative;
-  top: 0%;
-  left: 0%;
-  width: auto;
   /*****/
   padding: 8px 8px 8px 8px;
 }
 
-#table-data-year {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  top: 0%;
-  left: 0%;
-  margin: 0;
-  /*****/
-  padding: 8px 8px 8px 8px;
-}
 
 #table-toggle {
+  /* background-color: #9B968C; */
   font-family: sans-serif;
   font-weight: 200;
   text-transform: none;
-  line-height: 19px;
-  font-size: 12px;
+  line-height: 17px;
+  font-size: 11px;
+  border-bottom: 1px solid var(--borders);
 }
 
 .current {
+  /* font-family: "AKZROM"; */
+  background-color: #A09A90;
   position: relative;
-  /* text-decoration: underline; */
+  text-decoration: underline;
 }
 
-.current::before {
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* filter: blur(3px); */
-  position: absolute;
-  background-color: var(--bg);
-}
-
-#info-padding {
-  position: relative;
-  top: 0%;
-  left: 0%;
-  width: auto;
+#info-one {
   padding: 8px 8px 8px 8px;
 }
 
-#info-padding span {
+#info-two {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  padding: 8px 8px 8px 8px;
+}
+
+.bold-type {
   font-family: "AKZROM";
+  font-size: 11.5px;
 }
 
 #table-headers:nth-child(2),

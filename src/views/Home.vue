@@ -1,7 +1,9 @@
 <template>
   <div class="home-container">
     <app-left></app-left>
+  <!-- <transition name="fade" mode="in-out" appear> -->
     <app-right></app-right>
+  <!-- </transition> -->
   </div>
 </template>
 
