@@ -3,7 +3,7 @@
   <table id="table">
     <thead>
       <tr>
-        <th id="table-headers" v-for="header in headers" v-bind:key='header' :class="{ active: sortKey == header }">
+        <!-- <th id="table-headers" v-for="header in headers" v-bind:key='header' :class="{ active: sortKey == header }">
           <div v-if="header === 'year'">
             <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
                 </span>
@@ -14,6 +14,9 @@
             <span class="arrow" :class="sortOrders[header] > 0 ? 'asc' : 'dsc'">
                 </span>
           </div>
+        </th> -->
+        <th id="table-headers" v-for="header in headers" v-bind:key='header' :class="{ active: sortKey == header }">
+          <span >{{ header | capitalize }}</span>
         </th>
       </tr>
     </thead>
@@ -72,13 +75,22 @@ export default {
     /* START ON NAME SORT */
     this.current = 0
     this.activeProject = this.filteredProjects[0]
+
+    /**** RANDOMIZE THIS????****/
     this.sortBy("year")
 
     // console.log(this.activeProject.project)
     /* END START ON NAME SORT */
   },
   mounted() {
-
+    EventBus.$on("set-project-on-scroll", (scrolledID) => {
+      for (var i = 0; i < this.filteredProjects.length; i++) {
+        if (scrolledID == this.filteredProjects[i].tag ) {
+          this.current = i;
+          this.activeProject = this.filteredProjects[i]
+        }
+      }
+    });
   },
   computed: {
     filteredProjects: function() {
@@ -114,12 +126,16 @@ export default {
       this.activeProject = null
       this.sortKey = key
       this.sortOrders[key] = this.sortOrders[key] * -1
-      this.current = 0
-      this.activeProject = this.filteredProjects[0]
-      EventBus.$emit("sort-projects", this.filteredProjects);
+      /**** SET ACTIVE PROJECT WITH THID ****/
+        this.current = 0
+        this.activeProject = this.filteredProjects[0]
+      /**** SET ACTIVE PROJECT WITH THID ****/
+      EventBus.$emit("sorted-projects", this.filteredProjects);
+      window.scrollTo(0,0);
     },
     getActiveProject: function() {
-      // console.log(this.activeProject.project)
+      EventBus.$emit("set-active-project", this.activeProject.tag);
+      window.scrollTo(0,0);
     }
   }
 }
@@ -136,7 +152,7 @@ body {
   --bg: #9B968C; */
   /* --bg: #413C34;
   --black: white;
-  --borders: white;*/
+  --borders: white; */
   /* --black: white;
   --borders: white;
   --bg: black; */
@@ -195,17 +211,16 @@ body {
 }
 
 #table-data {
-  /*****/
   padding: 8px 8px 8px 8px;
 }
 
 
 #table-toggle {
   /* background-color: #9B968C; */
-  font-family: sans-serif;
+  font-family: "AKZLIGHT";
   font-weight: 200;
   text-transform: none;
-  line-height: 17px;
+  line-height: 16px;
   font-size: 11px;
   border-bottom: 1px solid var(--borders);
 }
@@ -213,12 +228,16 @@ body {
 .current {
   /* font-family: "AKZROM"; */
   background-color: #A09A90;
+  /* background-color: #9B968C; */
   position: relative;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  border-top: 2px solid #A09A90 !important;
+  border-bottom: 1px solid #A09A90 !important;
+  /* border-bottom: 0px solid var(--borders) !important; */
 }
 
 #info-one {
-  padding: 8px 8px 8px 8px;
+  padding: 6px 8px 8px 8px;
 }
 
 #info-two {
@@ -245,7 +264,7 @@ body {
 }
 
 #table-headers.active {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 #table-headers.active .arrow {

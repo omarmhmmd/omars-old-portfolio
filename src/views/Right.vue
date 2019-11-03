@@ -1,41 +1,79 @@
 <template>
 <div class="right-container">
-  <div class="images" v-for="test in newJson" :key="test">
-    <img v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" v-for="(item, index) in test.images" :id="test.tag" :key="item" :src="test.images[index]">
+  <div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" :id="test.tag" class="images" v-for="test in newJson" :key="test">
+    <!-- <transition name="fade" mode="out-in" appear> -->
+    <img v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded">
+    <!-- <img data-aos="fade" v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded"> -->
+    <!-- <transition name="fade" mode="out-in" appear> -->
   </div>
 </div>
 </template>
 
 <script>
 import projectJson from '../json/om001.js'
-import {
-  EventBus
-} from "../event-bus.js";
+import { EventBus } from "../event-bus.js";
 
 export default {
   data() {
     return {
       newJson: projectJson.projects,
+      activeProjectTag:'',
       projectJson,
       intersectionOptions: {
-        threshold: [0.5]
+        threshold: [0.125]
       }
     }
   },
   created() {
-    EventBus.$on("sort-projects", sortedProjects => {
+    EventBus.$on("sorted-projects", (sortedProjects) => {
       this.newJson = sortedProjects
+    });
+    EventBus.$on("set-active-project", activeProject => {
+      this.activeProjectTag = activeProject
+      var elmnt = document.getElementById(this.activeProjectTag);
+      elmnt.scrollIntoView();
     });
   },
   methods: {
     onWaypoint({el, going, direction}) {
-      console.log(el.getAttribute('id') + " is " + going + " viewport, direction: " + direction)
-    }
+      console.log(el.id + " is " + going + " viewport, direction: " + direction)
+      if (going == "in") {
+        EventBus.$emit("set-project-on-scroll", el.id);
+      }
+
+    },
   }
 }
 </script>
 
 <style>
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s ease;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}
+
+img [lazy='loaded'] {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 20s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .right-container {
   height: 101vh;
   overflow-y: scroll;
@@ -55,6 +93,6 @@ export default {
 
 .images img {
   width: 95%;
-  padding-bottom: 2vw;
+  margin-bottom: 1vw;
 }
 </style>
