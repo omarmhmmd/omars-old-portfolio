@@ -74,7 +74,7 @@ export default {
     this.activeProject = this.filteredProjects[0]
     this.sortBy("year")
 
-    console.log(this.activeProject.project)
+    // console.log(this.activeProject.project)
     /* END START ON NAME SORT */
   },
   mounted() {
@@ -119,7 +119,7 @@ export default {
       EventBus.$emit("sort-projects", this.filteredProjects);
     },
     getActiveProject: function() {
-      console.log(this.activeProject.project)
+      // console.log(this.activeProject.project)
     }
   }
 }
