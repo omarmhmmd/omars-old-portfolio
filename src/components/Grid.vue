@@ -72,36 +72,8 @@
             speculative/critical studies. WORKING WITH graphics, new media, architecture, and the internet, he provides the world with art and design that generates discourse and inquiry.
           </div>
         </div>
-        <div class="info-about">
+        <div class="info-about-columns">
           <div id="info-about-left">
-            <span class="bold-type">Experience:</span>
-            <ul>
-              <li>
-                2018 - 2019 <br> SFMOMA <br> Designer
-              </li>
-              <br>
-              <li>
-                2018 <br> SFMOMA <br> Web + Digital Intern
-              </li>
-              <br>
-              <li>
-                2017 <br> UC Davis Library <br> Graphic Designer
-              </li>
-            </ul>
-            <br>
-            <span class="bold-type">Collaborators:</span>
-            <ul>
-              <li>
-                2019 <br> NABIBOYD <br> <a target="_blank" href="https://nabiboyd.com">https://nabiboyd.com</a>
-              </li>
-              <br>
-              <li>
-                2018 <br> Letterform archive <br> <a target="_blank" href="https://letterformarchive.org/news/announcing-the-online-archive">https://letterformarchive.org/<br>news/announcing-the-online-archive</a>
-              </li>
-              <br>
-            </ul>
-          </div>
-          <div id="info-about-right">
             <span class="bold-type">EDUCATION: </span>
             <ul>
               <li>
@@ -119,19 +91,58 @@
             <span class="bold-type">INTERNET: </span>
             <ul>
               <li>
-                instagram.com/omarmhmmd1
+                <a target="_blank" href="https://www.instagram.com/omarmhmmd1/">instagram</a>
               </li>
               <li>
-                linkedin.com/omarmhmmd
+                <a target="_blank" href="https://www.linkedin.com/in/omarmhmmd/">linkedin</a>
               </li>
               <li>
-                github.com/omarmhmmd
+                <a target="_blank" href="https://github.com/omarmhmmd">github</a>
               </li>
               <li>
-                are.na/omarmhmmd
+                <a target="_blank" href="https://www.are.na/omar-mhmmd">are.na</a>
               </li>
             </ul>
             <br>
+            <span class="bold-type">CONTACT: </span>
+            <ul>
+              <li>
+               omar.mhmmd@gmail.com
+              </li>
+            </ul>
+            <br>
+          </div>
+          <div id="info-about-middle" class = "info-columns">
+            <span class="bold-type">Work Experience:</span>
+            <ul>
+              <li>
+                2018 - 2019 <br> SFMOMA <br> Designer
+              </li>
+              <br>
+              <li>
+                2018 <br> SFMOMA <br> Web + Digital Intern
+              </li>
+              <br>
+              <li>
+                2017 <br> UC Davis Library <br> Graphic Designer
+              </li>
+            </ul>
+            <br>
+            <span class="bold-type">Collaborators:</span>
+            <ul>
+              <li>
+                <a target="_blank" href="https://letterformarchive.org/news/announcing-the-online-archive">Letterform archive</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://nabiboyd.com">NABIBOYD</a>
+              </li>
+              <li>
+                OAKLAND PUBLIC LIBRARY
+              </li>
+              <br>
+            </ul>
+          </div>
+          <div id="info-about-right" class = "info-columns">
             <span class="bold-type">AWARDS/PRESS: </span>
             <ul>
               <li>
@@ -139,11 +150,11 @@
               </li>
               <br>
               <li>
-                2018 <br> HOVERSTATE.ES <br> http://hoverstat.es/features/<br>sfmoma-bathrooms <br>
+                2018 <br> <a target="_blank" href="http://hoverstat.es/features/sfmoma-bathrooms">hoverstat.es</a>
               </li>
               <br>
               <li>
-                2018 <br> brutalistwebsites.com
+                2018 <br> <a target="_blank" href="https://brutalistwebsites.com/">brutalistwebsites.com</a>
               </li>
               <br>
             </ul>
@@ -204,6 +215,9 @@ export default {
 
     EventBus.$on("scrolled-to-bottom", () => {
       this.current = null
+      this.$router.push({
+        path: "about"
+      })
       // var elmnt = document.getElementById('table-toggle-about');
       // elmnt.scrollIntoView();
     });
@@ -259,8 +273,11 @@ export default {
     setAbout() {
       this.current = null
       this.activeProject = null
-      var elmnt = document.getElementById('table-row-about');
-      elmnt.scrollIntoView();
+      this.$router.push({
+        path: "about"
+      })
+      // var elmnt = document.getElementById('table-row-about');
+      // elmnt.scrollIntoView();
     }
   }
 }
@@ -268,21 +285,29 @@ export default {
 
 <style>
 .info-about {
-  font-size: 12px;
+  font-size: var(--fontSize);
   display: flex;
-  justify-content: space-between;
   text-transform: uppercase;
-  padding: 8px 8px 8px 8px;
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
+}
+
+.info-about-columns {
+  /* background-color: green; */
+  justify-content: space-between;
+  display: flex;
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
 }
 
 #info-about-left {
-  width: auto;
+  /* background-color: red; */
+}
+
+#info-about-middle {
+
   /* background-color: red; */
 }
 
 #info-about-right {
-  width: auto;
-  padding-right: 10px;
   /* background-color: green; */
 }
 
@@ -290,7 +315,7 @@ export default {
   font-family: sans-serif;
   font-style: italic;
   font-weight: 200;
-  font-size: 11.75px;
+  font-size: 0.95vw;
 }
 
 .info-about ul {
@@ -300,7 +325,7 @@ export default {
 }
 
 body {
-  letter-spacing: 0.125px;
+  letter-spacing: 0.0125vw;
   background-color: var(--bg);
 }
 
@@ -311,6 +336,10 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+li a {
+  /* text-decoration: underline; */
 }
 
 .withWebsite {
@@ -331,6 +360,11 @@ a:hover {
   --black: black;
   --borders: black;
   --bg: white;
+  --fontSize: 0.95vw;
+  --fontSize-headers: 0.75vw;
+  --lineHeight: 1.325vw;
+  --row-padding: 0.75vw ;
+  --border-px: 0.025vw;
 }
 
 .table-container {
@@ -347,18 +381,14 @@ a:hover {
 }
 
 #table-headers {
-  font-size: 9px;
+  font-size: var(--fontSize-headers);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   text-align: left;
-  margin: 10px;
-  border-bottom: 1px solid var(--borders);
-}
-
-#table-headers {
-  padding: 8px 8px 8px 8px;
+  border-bottom: var(--border-px) solid var(--borders);
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
 }
 
 #table-headers div span {
@@ -370,15 +400,15 @@ a:hover {
 }
 
 #table-rows {
-  font-size: 12px;
-  border-top: 1px solid var(--borders);
-  border-bottom: 1px solid var(--borders);
+  font-size: var(--fontSize);
+  border-top: var(--border-px) solid var(--borders);
+  border-bottom: var(--border-px) solid var(--borders);
 }
 
 #table-row-about {
-  font-size: 12px;
-  border-top: 1px solid var(--borders);
-  border-bottom: 1px solid var(--borders);
+  font-size: var(--fontSize);
+  border-top: var(--border-px) solid var(--borders);
+  border-bottom: var(--border-px) solid var(--borders);
 }
 
 #table-rows:hover, #table-row-about:hover {
@@ -395,7 +425,7 @@ a:hover {
   position: relative;
   /* text-decoration: underline; */
   /* border-top: 2px solid #A09A90 !important; */
-  border-bottom: 1px solid #A09A90 !important;
+  border-bottom: var(--border-px) solid #A09A90 !important;
   /* border-bottom: 0px solid var(--borders) !important; */
   cursor: auto !important;
 }
@@ -407,11 +437,11 @@ a:hover {
 #arrow {
   padding-left: 10px;
   padding-right: 10px;
-  width: 12px;
+  width: var(--fontSize);
 }
 
 #table-data {
-  padding: 8px 8px 8px 8px;
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
 }
 
 #table-toggle {
@@ -419,9 +449,9 @@ a:hover {
   /* letter-spacing: 0.25px; */
   font-family: "AKZLIGHT";
   /* font-weight: 200; */
-  line-height: 17px;
-  font-size: 12px;
-  border-bottom: 1px solid var(--borders);
+  line-height: var(--lineHeight);
+  font-size: var(--fontSize);
+  border-bottom: var(--border-px) solid var(--borders);
 }
 
 #table-toggle-about {
@@ -429,13 +459,13 @@ a:hover {
   /* letter-spacing: 0.25px; */
   font-family: "AKZLIGHT";
   /* font-weight: 200; */
-  line-height: 17px;
-  font-size: 12px;
-  /* border-bottom: 1px solid var(--borders); */
+  line-height: var(--lineHeight);
+  font-size: var(--fontSize);
+  /* border-bottom: var(--border-px) solid var(--borders); */
 }
 
 #info-one {
-  padding: 6px 8px 8px 8px;
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
   text-transform: uppercase;
 }
 
@@ -443,13 +473,13 @@ a:hover {
   display: flex;
   justify-content: space-between;
   text-transform: uppercase;
-  padding: 8px 8px 8px 8px;
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
 }
 
 .bold-type {
   text-transform: uppercase;
   font-family: "AKZROM";
-  font-size: 11.5px;
+  font-size: 0.9vw;
 }
 
 #table-headers:nth-child(2),

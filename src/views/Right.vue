@@ -106,7 +106,7 @@ img [lazy='loaded'] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 1vw;
 }
 
 .images img {
