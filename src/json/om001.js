@@ -2,6 +2,7 @@ export default {
   projects: [
     {
       project: 'suntar',
+      website: 'http://omarmhmmd.com/suntar/',
       tag: 'suntar',
       type: 'typeface',
       year:  "2019",
@@ -27,6 +28,7 @@ export default {
     {
       project: 'sfmomabathrooms',
       tag: 'sfmomabathrooms',
+      website: 'http://sfmomabathrooms.com/',
       type: 'website',
       year: "2017",
       info: 'Sfmomabathrooms is an interactive and print experience showcasing the bathrooms located at the San Francisco Museum of Modern Art. These bathrooms extend the experience of the museum into liminal spaces that usually take no part in an experience of art. Shoutout to Duchamp for the original bathroom piece.',

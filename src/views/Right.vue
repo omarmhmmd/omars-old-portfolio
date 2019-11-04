@@ -1,5 +1,5 @@
 <template>
-<div class="right-container">
+<div @scroll="onScroll" class="right-container">
   <div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" :id="test.tag" class="images" v-for="test in newJson" :key="test">
     <!-- <transition name="fade" mode="out-in" appear> -->
     <img v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded">
@@ -11,13 +11,15 @@
 
 <script>
 import projectJson from '../json/om001.js'
-import { EventBus } from "../event-bus.js";
+import {
+  EventBus
+} from "../event-bus.js";
 
 export default {
   data() {
     return {
       newJson: projectJson.projects,
-      activeProjectTag:'',
+      activeProjectTag: '',
       projectJson,
       intersectionOptions: {
         threshold: [0.125]
@@ -35,23 +37,39 @@ export default {
     });
   },
   methods: {
-    onWaypoint({el, going, direction}) {
+    onWaypoint({
+      el,
+      going,
+      direction
+    }) {
       console.log(el.id + " is " + going + " viewport, direction: " + direction)
       if (going == "in") {
         EventBus.$emit("set-project-on-scroll", el.id);
       }
-
     },
+    onScroll({
+      target: {
+        scrollTop,
+        clientHeight,
+        scrollHeight
+      }
+    }) {
+      if (scrollTop + clientHeight >= scrollHeight) {
+        EventBus.$emit("scrolled-to-bottom");
+      }
+    }
   }
 }
 </script>
 
 <style>
-
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 1s ease;
 }
-.fade-enter, .fade-leave-active {
+
+.fade-enter,
+.fade-leave-active {
   opacity: 0;
 }
 

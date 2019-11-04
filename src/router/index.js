@@ -5,11 +5,19 @@ import Home from '../views/Home.vue'
 Vue.use(VueRouter)
 
 //* SET ROUTES *//
-const routes = [{
-  path: '/',
-  name: 'home',
-  component: Home
-}]
+const routes = [
+  {
+    path: '/:id',
+    name: 'home',
+    component: Home,
+  },
+  {
+    path: '/',
+    name: 'home',
+    component: Home,
+  }
+
+]
 //* END SET ROUTES *//
 
 const router = new VueRouter({
