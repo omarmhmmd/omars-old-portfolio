@@ -49,6 +49,18 @@ export default {
       images: [
         "/images/projects/qiblah/001.png"
       ]
+    },
+    {
+      project: 'FWD:',
+      tag: 'fwd',
+      type: 'exhibition',
+      year: "2020",
+      info: ' Qiblah is a speculative prototype design that explores anti-interface technology. The qiblah is the direction towards the Ka\'aba which Muslims face towards while praying. Today many smart phone apps are responsible for guiding Muslims towards the correct qiblah. Qiblah was designed as an analog alternative, enabling holy spaces to be untouched by the distractions of higher technology.',
+      materials: 'Newsprint, Paint',
+      output: 'identity, signage',
+      images: [
+        "/images/projects/fwd/001.png",
+      ]
     }
   ]
 }

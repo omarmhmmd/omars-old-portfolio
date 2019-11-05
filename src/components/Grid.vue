@@ -146,7 +146,7 @@
             <span class="bold-type">AWARDS/PRESS: </span>
             <ul>
               <li>
-                2018 <br> UC DAVIS PRIZED WRITING <br> AWARD & PUBLICATION <br> <span id = "publication">What, How, and Where to Build: <br> The American Mosque</span>
+                2018 <br> UC DAVIS PRIZED WRITING <br> AWARD & PUBLICATION <br> <span id = "italic">What, How, and Where to Build: <br> The American Mosque</span>
               </li>
               <br>
               <li>
@@ -191,16 +191,19 @@ export default {
   },
   created() {
     /* START ON NAME SORT */
-    this.current = 0
-    this.activeProject = this.filteredProjects[0]
 
     /**** RANDOMIZE THIS????****/
     // this.sortBy("year")
+    // this.current = 0
+    // this.activeProject = this.filteredProjects[0]
 
     // console.log(this.activeProject.project)
     /* END START ON NAME SORT */
   },
   mounted() {
+    this.sortBy("year")
+    this.current = 0
+    this.activeProject = this.filteredProjects[0]
     EventBus.$on("set-project-on-scroll", (scrolledID) => {
       this.$router.push({
         path: scrolledID
@@ -284,46 +287,6 @@ export default {
 </script>
 
 <style>
-.info-about {
-  font-size: var(--fontSize);
-  display: flex;
-  text-transform: uppercase;
-  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
-}
-
-.info-about-columns {
-  /* background-color: green; */
-  justify-content: space-between;
-  display: flex;
-  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
-}
-
-#info-about-left {
-  /* background-color: red; */
-}
-
-#info-about-middle {
-
-  /* background-color: red; */
-}
-
-#info-about-right {
-  /* background-color: green; */
-}
-
-#publication {
-  font-family: sans-serif;
-  font-style: italic;
-  font-weight: 200;
-  font-size: 0.95vw;
-}
-
-.info-about ul {
-  /* list-style-type: circle;
-  list-style-position: inside;
-  list-style-image: url('/arrow.png'); */
-}
-
 body {
   letter-spacing: 0.0125vw;
   background-color: var(--bg);
@@ -362,7 +325,7 @@ li a {
   --bg: white;
   --fontSize: 0.95vw;
   --fontSize-headers: 0.75vw;
-  --lineHeight: 1.325vw;
+  --lineHeight: 1.4vw;
   --row-padding: 0.75vw ;
   --border-px: 0.025vw;
 }
@@ -451,6 +414,7 @@ li a {
   /* font-weight: 200; */
   line-height: var(--lineHeight);
   font-size: var(--fontSize);
+  text-transform: uppercase;
   border-bottom: var(--border-px) solid var(--borders);
 }
 
@@ -461,12 +425,13 @@ li a {
   /* font-weight: 200; */
   line-height: var(--lineHeight);
   font-size: var(--fontSize);
+  text-transform: uppercase;
   /* border-bottom: var(--border-px) solid var(--borders); */
 }
 
 #info-one {
   padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
-  text-transform: uppercase;
+  /* text-transform: none; */
 }
 
 #info-two {
@@ -474,6 +439,47 @@ li a {
   justify-content: space-between;
   text-transform: uppercase;
   padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
+}
+
+.info-about {
+  font-size: var(--fontSize);
+  display: flex;
+  /* text-transform: none; */
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
+}
+
+.info-about-columns {
+  /* background-color: green; */
+  text-transform: uppercase;
+  justify-content: space-between;
+  display: flex;
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
+}
+
+#info-about-left {
+  /* background-color: red; */
+}
+
+#info-about-middle {
+
+  /* background-color: red; */
+}
+
+#info-about-right {
+  /* background-color: green; */
+}
+
+#italic {
+  font-family: sans-serif;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 0.95vw;
+}
+
+.info-about ul {
+  /* list-style-type: circle;
+  list-style-position: inside;
+  list-style-image: url('/arrow.png'); */
 }
 
 .bold-type {
