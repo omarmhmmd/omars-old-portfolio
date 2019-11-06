@@ -74,21 +74,21 @@
         </div>
         <div class="info-about-columns">
           <div id="info-about-left">
-            <span class="bold-type">EDUCATION: </span>
+            <span class="bold-type">EDUCATION </span>
             <ul>
               <li>
                 2018 <br> UC Davis <br> B.A. Design
               </li>
             </ul>
             <br>
-            <span class="bold-type">LOCATION: </span>
+            <span class="bold-type">LOCATION </span>
             <ul>
               <li>
                 Berkeley, CA
               </li>
             </ul>
             <br>
-            <span class="bold-type">INTERNET: </span>
+            <span class="bold-type">INTERNET </span>
             <ul>
               <li>
                 <a target="_blank" href="https://www.instagram.com/omarmhmmd1/">instagram</a>
@@ -104,7 +104,7 @@
               </li>
             </ul>
             <br>
-            <span class="bold-type">CONTACT: </span>
+            <span class="bold-type">CONTACT </span>
             <ul>
               <li>
                omar.mhmmd@gmail.com
@@ -113,7 +113,7 @@
             <br>
           </div>
           <div id="info-about-middle" class = "info-columns">
-            <span class="bold-type">Work Experience:</span>
+            <span class="bold-type">Work Experience</span>
             <ul>
               <li>
                 2018 - 2019 <br> SFMOMA <br> Designer
@@ -128,7 +128,7 @@
               </li>
             </ul>
             <br>
-            <span class="bold-type">Collaborators:</span>
+            <span class="bold-type">Collaborators</span>
             <ul>
               <li>
                 <a target="_blank" href="https://letterformarchive.org/news/announcing-the-online-archive">Letterform archive</a>
@@ -143,7 +143,7 @@
             </ul>
           </div>
           <div id="info-about-right" class = "info-columns">
-            <span class="bold-type">AWARDS/PRESS: </span>
+            <span class="bold-type">AWARDS/PRESS </span>
             <ul>
               <li>
                 2018 <br> UC DAVIS PRIZED WRITING <br> AWARD & PUBLICATION <br> <span id = "italic">What, How, and Where to Build: <br> The American Mosque</span>
@@ -306,8 +306,14 @@ li a {
   /* text-decoration: underline; */
 }
 
-.withWebsite {
+ul li {
+  padding-left: 0.75vw;
+  /* font-family: "Bodoni MT";
+  font-weight: 100 !important;
+  text-transform: none; */
+}
 
+.withWebsite {
   /* background-color: red; */
 }
 
@@ -385,6 +391,7 @@ li a {
 .current {
   /* font-family: "AKZROM"; */
   background-color: #A09A90;
+  /* background-color: #d2a62d; */
   /* background-color: #9B968C; */
   position: relative;
   /* text-decoration: underline; */
@@ -462,7 +469,7 @@ li a {
 }
 
 #info-about-middle {
-
+  margin-left: 1.5vw;
   /* background-color: red; */
 }
 

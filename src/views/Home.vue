@@ -20,6 +20,11 @@ export default {
 </script>
 
 <style>
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
 .home-container {
   display: flex;
   flex-direction: row;

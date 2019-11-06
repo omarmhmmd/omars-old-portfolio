@@ -1,10 +1,8 @@
 <template>
 <div @scroll="onScroll" class="right-container">
   <div v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }" :id="test.tag" class="images" v-for="test in newJson" :key="test">
-    <!-- <transition name="fade" mode="out-in" appear> -->
-    <img v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded">
+    <img class = "lazy-img-fadeIn" v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded">
     <!-- <img data-aos="fade" v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded"> -->
-    <!-- <transition name="fade" mode="out-in" appear> -->
   </div>
 </div>
 </template>
@@ -63,27 +61,16 @@ export default {
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s ease;
+.lazy-img-fadeIn[lazy=loaded] {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
 }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
-}
-
-img [lazy='loaded'] {
-  opacity: 0;
-  animation-name: fadein;
-  animation-duration: 20s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-direction: normal;
-  animation-timing-function: ease-out;
-}
-
-@keyframes fadein {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -113,5 +100,6 @@ img [lazy='loaded'] {
 .images img {
   width: 95%;
   margin-bottom: 1vw;
+  /* transform: rotate(90deg); */
 }
 </style>
