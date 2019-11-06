@@ -61,7 +61,7 @@
           About
         </td>
         <td id="table-data">
-          2019
+          1994
         </td>
       </tr>
       <td id="table-toggle-about" colspan="100%">
@@ -218,6 +218,7 @@ export default {
 
     EventBus.$on("scrolled-to-bottom", () => {
       this.current = null
+      this.activeProject = null
       this.$router.push({
         path: "about"
       })

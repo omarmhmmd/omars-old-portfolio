@@ -95,6 +95,7 @@ img [lazy='loaded'] {
 .right-container {
   height: 101vh;
   overflow-y: scroll;
+  -webkit-overflow-y: scroll;
   width: 50vw;
   color: white;
   background-color: black;
