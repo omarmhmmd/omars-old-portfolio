@@ -62,12 +62,13 @@ export default {
 
 <style>
 .lazy-img-fadeIn[lazy=loaded] {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-name: fadeIn;
+  opacity: 0;
     animation-name: fadeIn;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
 }
 
 @keyframes fadeIn {
@@ -82,12 +83,9 @@ export default {
 .right-container {
   height: 101vh;
   overflow-y: scroll;
-  -webkit-overflow-y: scroll;
   width: 50vw;
   color: white;
   background-color: black;
-  display: flex;
-  flex-direction: column;
 }
 
 .images {

@@ -22,7 +22,7 @@
     </thead>
     <tbody v-for="(filteredProject, index) in filteredProjects" :key="filteredProject">
       <tr :class="{current: current == index}" id="table-rows" @click="activeProject = filteredProjects[index], getActiveProject(), current = index">
-        <td id="table-data">
+        <td id="table-data-website">
           <div class="withWebsite" v-if="activeProject === filteredProjects[index] && filteredProjects[index].hasOwnProperty('website')">
             {{filteredProjects[index].project}} <img id="arrow" src="assets/arrow.png" alt=""> <a target="_blank" :href="filteredProjects[index].website">{{filteredProjects[index].website}} </a>
           </div>
@@ -30,10 +30,10 @@
             {{filteredProjects[index].project}}
           </div>
         </td>
-        <td id="table-data">
+        <td id="table-data-type">
           {{filteredProjects[index].type}}
         </td>
-        <td id="table-data">
+        <td id="table-data-year">
           {{filteredProjects[index].year}}
         </td>
       </tr>
@@ -68,8 +68,7 @@
         <div class="info-about">
           <div>
             <span class="bold-type">INFO: </span>Omar Mohammad is a first generation Afghan-American born and raised in the Bay Area of California. He is the son of Said & Fariha Mohammad, refugees who evaded the Soviet Invasion of Afghanistan c. 1985.
-            He is a designer, artist, and programmer creating work that surpasses boundaries and media. His work oscillates between the paradigms of self initiated projects and cultural/commercial clients through graphic/object/interactive pieces and
-            speculative/critical studies. WORKING WITH graphics, new media, architecture, and the internet, he provides the world with art and design that generates discourse and inquiry.
+            He is a designer, programmer, and artist. <br><br> His work oscillates between cultural/commercial and self initiated projects. Working with graphics, architecture, the internet, code, and speculative/critical studies, he creates websites, books, objects, identities, and exhibitions.
           </div>
         </div>
         <div class="info-about-columns">
@@ -193,7 +192,7 @@ export default {
     /* START ON NAME SORT */
 
     /**** RANDOMIZE THIS????****/
-    // this.sortBy("year")
+    // this.sortBy("project")
     // this.current = 0
     // this.activeProject = this.filteredProjects[0]
 
@@ -201,7 +200,6 @@ export default {
     /* END START ON NAME SORT */
   },
   mounted() {
-    this.sortBy("year")
     this.current = 0
     this.activeProject = this.filteredProjects[0]
     EventBus.$on("set-project-on-scroll", (scrolledID) => {
@@ -222,8 +220,8 @@ export default {
       this.$router.push({
         path: "about"
       })
-      // var elmnt = document.getElementById('table-toggle-about');
-      // elmnt.scrollIntoView();
+      var elmnt = document.getElementById('table-toggle-about');
+      elmnt.scrollIntoView();
     });
   },
   computed: {
@@ -288,6 +286,11 @@ export default {
 </script>
 
 <style>
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
 body {
   letter-spacing: 0.0125vw;
   background-color: var(--bg);
@@ -413,6 +416,28 @@ ul li {
 
 #table-data {
   padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
+}
+
+#table-data-website {
+  height: auto;
+  padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
+  display: flex;
+  width: 30vw;
+  /* background-color: red; */
+}
+
+#table-data-type {
+  padding: var(--row-padding) 0px var(--row-padding) var(--row-padding);
+  width: 12.5vw;
+  /* background-color: green; */
+}
+
+#table-data-year {
+  padding: var(--row-padding) 8px var(--row-padding) 0px;
+  align-items:flex-end;
+  display: flex;
+  justify-content: flex-end;
+  /* background-color: yellow; */
 }
 
 #table-toggle {
