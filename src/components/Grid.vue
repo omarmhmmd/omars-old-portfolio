@@ -563,4 +563,63 @@ ul li {
   border-right: 3px solid transparent;
   border-top: 4px solid var(--black);
 }
+
+@media only screen and (max-width: 768px) {
+  .info-about {
+    /* width: 92vw; */
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 14px;
+    flex-direction: column;
+    display: flex;
+    padding-bottom: 15px;
+    /* text-transform: none; */
+  }
+
+  .info-about-columns {
+    /* background-color: green; */
+    text-transform: uppercase;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #info-about-left {
+    /* background-color: red; */
+  }
+
+  #info-about-middle {
+    /* background-color: red; */
+    margin-left: 0vw;
+  }
+
+  #info-about-right {
+    /* background-color: green; */
+  }
+
+  #italic {
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 14px;
+  }
+
+  .info-about ul {
+    /* list-style-type: circle;
+    list-style-position: inside;
+    list-style-image: url('/arrow.png'); */
+  }
+
+  .bold-type {
+    text-transform: uppercase;
+    font-family: "AKZROM";
+    font-size: 14px;
+  }
+
+
+  ul li {
+    padding-left: 0vw;
+  }
+}
 </style>
