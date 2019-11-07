@@ -26,7 +26,7 @@
         <span class = "mobile-bold">output:</span> {{test.output}}
       </div>
     </div>
-    <img v-for="(item, index) in test.images" :id="test.tag" :key="item" :src="test.images[index]">
+    <img class = "lazy-img-fadeIn" v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded">
   </div>
 </div>
 </template>
@@ -55,6 +55,24 @@ export default {
 </script>
 
 <style>
+.lazy-img-fadeIn[lazy=loaded] {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .mobile-container {
   overflow-x: hidden;
