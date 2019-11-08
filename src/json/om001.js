@@ -25,11 +25,11 @@ export default {
       materials: 'Figma, Illustrator',
       output: 'Identity, Graphics',
       images: [
-        "/images/projects/artexchange/001.png",
-        "/images/projects/artexchange/002.png",
-        "/images/projects/artexchange/005.png",
-        "/images/projects/artexchange/004.png",
-        "/images/projects/artexchange/003.png",
+        "/images/projects/artexchange/001.jpg",
+        "/images/projects/artexchange/002.jpg",
+        "/images/projects/artexchange/005.jpg",
+        "/images/projects/artexchange/004.jpg",
+        "/images/projects/artexchange/003.jpg",
       ]
     },
     {
@@ -90,8 +90,8 @@ export default {
         "/images/projects/tcot/001.jpg",
         "/images/projects/tcot/003.jpg",
         "/images/projects/tcot/002.jpg",
-        "/images/projects/tcot/005.jpg",
         "/images/projects/tcot/004.jpg",
+        "/images/projects/tcot/005.jpg",
       ]
     },
     {
@@ -119,9 +119,9 @@ export default {
       materials: 'Figma, VUE.JS, Robofont',
       output: 'Website, typeface, interface',
       images: [
-        "/images/projects/suntar/001.png",
-        "/images/projects/suntar/002.png",
-        "/images/projects/suntar/003.png",
+        "/images/projects/suntar/001.jpg",
+        "/images/projects/suntar/002.jpg",
+        "/images/projects/suntar/003.jpg",
       ]
     },
     {
@@ -134,11 +134,11 @@ export default {
       materials: 'Moleskine, Figma, VUE.JS',
       output: 'Website, exhibition, 100 sketches (5.5" x 8.5")',
       images: [
-        "/images/projects/100sketches100buildings/001.png",
-        "/images/projects/100sketches100buildings/002.png",
-        "/images/projects/100sketches100buildings/003.png",
-        "/images/projects/100sketches100buildings/004.png",
-        "/images/projects/100sketches100buildings/005.png",
+        "/images/projects/100sketches100buildings/001.jpg",
+        "/images/projects/100sketches100buildings/002.jpg",
+        "/images/projects/100sketches100buildings/003.jpg",
+        "/images/projects/100sketches100buildings/004.jpg",
+        "/images/projects/100sketches100buildings/005.jpg",
       ]
     },
     {
@@ -167,7 +167,7 @@ export default {
       output: 'identity, graphic tool, website',
       images: [
         "/images/projects/rethinkweb/005.gif",
-        // "/images/projects/rethinkweb/002.png",
+        // "/images/projects/rethinkweb/002.jpg",
         "/images/projects/rethinkweb/003.jpg"
       ]
     },
@@ -181,9 +181,9 @@ export default {
       materials: 'Raspberry Pi, Javascript',
       output: 'twitter bot',
       images: [
-        "/images/projects/josefalbersbot/001.png",
-        "/images/projects/josefalbersbot/002.png",
-        "/images/projects/josefalbersbot/003.png"
+        "/images/projects/josefalbersbot/001.jpg",
+        "/images/projects/josefalbersbot/002.jpg",
+        "/images/projects/josefalbersbot/003.jpg"
       ]
     },
     {
@@ -211,11 +211,11 @@ export default {
       materials: 'Raspberry Pi, Node.js, LED, Wood, Acrylic',
       output: 'object, interface',
       images: [
-        "/images/projects/qiblah/006.png",
-        "/images/projects/qiblah/003.png",
-        "/images/projects/qiblah/004.png",
+        "/images/projects/qiblah/006.jpg",
+        "/images/projects/qiblah/003.jpg",
+        "/images/projects/qiblah/004.jpg",
         "/images/projects/qiblah/005.gif",
-        "/images/projects/qiblah/001.png",
+        "/images/projects/qiblah/001.jpg",
       ]
     },
     {
@@ -244,10 +244,10 @@ export default {
       materials: 'Unity, C#',
       output: 'Video game, code',
       images: [
-        "/images/projects/pilgrim/002.png",
-        "/images/projects/pilgrim/003.png",
-        "/images/projects/pilgrim/004.png",
-        "/images/projects/pilgrim/005.png"
+        "/images/projects/pilgrim/002.jpg",
+        "/images/projects/pilgrim/003.jpg",
+        "/images/projects/pilgrim/004.jpg",
+        "/images/projects/pilgrim/005.jpg"
       ]
     },
   ]
