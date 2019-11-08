@@ -63,13 +63,7 @@ export default {
 
 <style>
 .lazy-img-fadeIn[lazy=loaded] {
-  opacity: 0;
-    animation-name: fadeIn;
-    animation-duration: .5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    animation-timing-function: ease-out;
+
 }
 
 @keyframes fadeIn {
