@@ -44,6 +44,7 @@ export default {
       if (going == "in") {
         EventBus.$emit("set-project-on-scroll", el.id);
       }
+
     },
     onScroll({
       target: {
