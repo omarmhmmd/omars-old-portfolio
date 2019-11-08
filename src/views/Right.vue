@@ -1,6 +1,6 @@
 <template>
 <div @scroll="onScroll" class="right-container">
-  <div class="images" v-for="test in newJson" :key="test">
+  <div class="images" :id="test.tag" v-for="test in newJson" :key="test">
     <img  v-waypoint="{ active: true, callback: onWaypoint, options: intersectionOptions }"  class = "lazy-img-fadeIn" v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded">
     <!-- <img data-aos="fade" v-for="(item, index) in test.images" :id="test.tag" :key="item" v-lazy="test.images[index]" lazy="loaded"> -->
   </div>

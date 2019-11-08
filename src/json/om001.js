@@ -10,9 +10,9 @@ export default {
       materials: 'Figma, VUE.JS, netlify',
       output: 'Website, identity, interface',
       images: [
-        "/images/projects/nabiboyd/001.png",
-        "/images/projects/nabiboyd/002.png",
-        "/images/projects/nabiboyd/003.png",
+        "/images/projects/nabiboyd/001.jpg",
+        "/images/projects/nabiboyd/002.jpg",
+        "/images/projects/nabiboyd/003.jpg",
       ]
     },
     {
@@ -42,9 +42,9 @@ export default {
       materials: 'Figma, HTML/CSS/JAVASCRIPT',
       output: 'Website, interface, archive',
       images: [
-        "/images/projects/omarsbooks/001.png",
-        "/images/projects/omarsbooks/002.png",
-        "/images/projects/omarsbooks/003.png",
+        "/images/projects/omarsbooks/001.jpg",
+        "/images/projects/omarsbooks/002.jpg",
+        "/images/projects/omarsbooks/003.jpg",
       ]
     },
     {
@@ -87,11 +87,11 @@ export default {
       materials: 'Figma, Illustrator',
       output: 'Identity, Graphics',
       images: [
-        "/images/projects/tcot/001.png",
-        "/images/projects/tcot/003.png",
-        "/images/projects/tcot/002.png",
-        "/images/projects/tcot/005.png",
-        "/images/projects/tcot/004.png",
+        "/images/projects/tcot/001.jpg",
+        "/images/projects/tcot/003.jpg",
+        "/images/projects/tcot/002.jpg",
+        "/images/projects/tcot/005.jpg",
+        "/images/projects/tcot/004.jpg",
       ]
     },
     {
@@ -103,10 +103,10 @@ export default {
       materials: 'high-grade vinyl',
       output: '17" Vinyl prints',
       images: [
-        "/images/projects/trashrecyclingcompost/010.png",
-        "/images/projects/trashrecyclingcompost/007.png",
-        "/images/projects/trashrecyclingcompost/011.png",
-        "/images/projects/trashrecyclingcompost/004.png"
+        "/images/projects/trashrecyclingcompost/010.jpg",
+        "/images/projects/trashrecyclingcompost/007.jpg",
+        "/images/projects/trashrecyclingcompost/011.jpg",
+        "/images/projects/trashrecyclingcompost/004.jpg"
       ]
     },
     {
@@ -151,9 +151,9 @@ export default {
       materials: 'figma, html/css/javascript',
       output: 'website, interface',
       images: [
-        "/images/projects/letterformarchive/001.png",
-        "/images/projects/letterformarchive/002.png",
-        "/images/projects/letterformarchive/003.png"
+        "/images/projects/letterformarchive/001.jpg",
+        "/images/projects/letterformarchive/002.jpg",
+        "/images/projects/letterformarchive/003.jpg"
       ]
     },
     {
@@ -168,7 +168,7 @@ export default {
       images: [
         "/images/projects/rethinkweb/005.gif",
         // "/images/projects/rethinkweb/002.png",
-        "/images/projects/rethinkweb/003.png"
+        "/images/projects/rethinkweb/003.jpg"
       ]
     },
     {
