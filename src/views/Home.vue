@@ -1,10 +1,9 @@
 <template>
   <div class="home-container">
     <app-left id = "app-left"></app-left>
-  <!-- <transition name="fade" mode="in-out" appear> -->
+
     <app-right id = "app-right"></app-right>
     <app-mobile id = "app-mobile"></app-mobile>
-  <!-- </transition> -->
   </div>
 </template>
 
