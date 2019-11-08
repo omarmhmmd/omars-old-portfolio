@@ -196,9 +196,9 @@ export default {
       materials: 'figma, html/css/javascript',
       output: 'website, interface',
       images: [
-        "/images/projects/omarmhmmd/001.png",
-        "/images/projects/omarmhmmd/002.png",
-        "/images/projects/omarmhmmd/003.png"
+        "/images/projects/omarmhmmd/001.jpg",
+        "/images/projects/omarmhmmd/002.jpg",
+        "/images/projects/omarmhmmd/003.jpg"
       ]
     },
     {
