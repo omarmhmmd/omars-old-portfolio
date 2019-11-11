@@ -62,7 +62,7 @@
             </li>
             <br>
             <li>
-              2018 <br> SFMOMA <br> Web + Digital Intern
+              2018 <br> SFMOMA <br> Creative Technologist Intern
             </li>
             <br>
             <li>
