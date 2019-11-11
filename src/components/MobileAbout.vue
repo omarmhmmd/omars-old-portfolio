@@ -11,7 +11,8 @@
       <div class="info-about">
         <div>
           <span class="bold-type">INFO: </span>Omar Mohammad is a first generation Afghan-American born and raised in the Bay Area of California. He is the son of Said & Fariha Mohammad, refugees who evaded the Soviet Invasion of Afghanistan c. 1985.
-          He is a designer, programmer, and artist. <br><br> His work oscillates between cultural/commercial and self-initiated projects. Working with graphics, architecture, the internet, code, and speculative/critical studies, he creates websites, books, objects, identities, and exhibitions.
+          He is a designer, programmer, and artist. <br><br> HIS WORK OSCILLATES BETWEEN CULTURAL/COMMERCIAL AND SELF-INITIATED PROJECTS. WORKING WITH GRAPHICS, ARCHITECTURE, THE INTERNET, CODE, AND SPECULATIVE/CRITICAL STUDIES, HE DESIGNS AND PROGRAMS APPS, BOOKS, EXHIBITIONS, IDENTITIES, OBJECTS, AND WEBSITES.
+
         </div>
       </div>
       <div class="info-about-columns">
