@@ -120,7 +120,7 @@
               </li>
               <br>
               <li>
-                2018 <br> SFMOMA <br> Creative Technologist Intern
+                2018 <br> SFMOMA <br> Creative Technologist <br> Intern
               </li>
               <br>
               <li>
@@ -146,7 +146,7 @@
             <span class="bold-type">AWARDS/PRESS </span>
             <ul>
               <li>
-                2018 <br> UC DAVIS PRIZED WRITING <br> AWARD & PUBLICATION <br> <span id = "italic">What, How, and Where to Build: <br> The American Mosque</span>
+                2018 <br> UC DAVIS PRIZED WRITING <br> AWARD & PUBLICATION <br> <span id = "italic">What, How, and Where to <br> Build: The American Mosque</span>
               </li>
               <br>
               <li>
@@ -485,7 +485,7 @@ ul li {
 .info-about-columns {
   /* background-color: green; */
   text-transform: uppercase;
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   padding: var(--row-padding) var(--row-padding) var(--row-padding) var(--row-padding);
 }
@@ -495,7 +495,7 @@ ul li {
 }
 
 #info-about-middle {
-  margin-left: 1.5vw;
+  margin-left: 1.25vw;
   /* background-color: red; */
 }
 
