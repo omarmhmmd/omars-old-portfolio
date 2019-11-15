@@ -34,7 +34,7 @@ export default {
     },
     {
       project: "omar's books",
-      website: 'https://omarmhmmd.github.io/omarmhmmd-v1/omarsbooks/',
+      website: 'https://omarmhmmd.com/omarsbooks',
       tag: 'omars-books',
       type: 'website',
       year:  "2019",
@@ -111,7 +111,7 @@ export default {
     },
     {
       project: 'suntar',
-      website: 'https://omarmhmmd.github.io/omarmhmmd-v1/suntar/',
+      website: 'https://omarmhmmd.suntar',
       tag: 'suntar',
       type: 'typeface',
       year:  "2018",
@@ -189,7 +189,7 @@ export default {
     {
       project: 'omarmhmmd.com (v1)',
       tag: 'omarmhmmd-v1',
-      website: 'https://omarmhmmd.github.io/omarmhmmd-v1/',
+      website: 'https://omarmhmmd.com/omarmhmmd-v1',
       type: 'website',
       year: "2017",
       info: 'The first portfolio website I built for myself (you are currently on the second). Using no framework, maintenance and updating became quite difficult so I had to move on. When loaded projects are animated through a gradient of a single color which is randomly generated each time.',

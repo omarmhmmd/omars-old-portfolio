@@ -1,7 +1,6 @@
 <template>
   <div class="home-container">
     <app-left id = "app-left"></app-left>
-
     <app-right id = "app-right"></app-right>
     <app-mobile id = "app-mobile"></app-mobile>
   </div>
@@ -9,7 +8,7 @@
 
 <script>
 import Left from './Left.vue';
-import Right from './Right.vue';
+import Right from '../components/Right.vue';
 import Mobile from './Mobile.vue';
 
 export default {
