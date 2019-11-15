@@ -111,7 +111,7 @@ export default {
     },
     {
       project: 'suntar',
-      website: 'https://omarmhmmd.suntar',
+      website: 'https://omarmhmmd.com/suntar',
       tag: 'suntar',
       type: 'typeface',
       year:  "2018",
