@@ -138,7 +138,8 @@ export default {
         "/images/projects/100sketches100buildings/002.jpg",
         "/images/projects/100sketches100buildings/003.jpg",
         "/images/projects/100sketches100buildings/004.jpg",
-        "/images/projects/100sketches100buildings/005.jpg",
+        "/images/projects/100sketches100buildings/006.png",
+        "/images/projects/100sketches100buildings/008.gif",
       ]
     },
     {
